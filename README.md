@@ -1,0 +1,3 @@
+I chose LangGraph because it excels at stateful, multi-turn conversations where an agent must follow a specific logic flow—identifying intent, performing RAG, and then collecting missing lead information. Unlike a linear chain, LangGraph allows for loops and conditional edges; if a user expresses high intent but hasn't provided an email, the graph 'loops' back to the collection node rather than trying to call the tool prematurely.
+
+State Management is handled via a TypedDict that stores both the message history and a lead_data object. This ensures that once a user provides their Name, it is persisted in the state even if the next few turns are spent answering pricing questions via RAG.
