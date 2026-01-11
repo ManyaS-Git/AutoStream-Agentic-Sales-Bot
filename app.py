@@ -5,7 +5,7 @@ from langgraph.graph import StateGraph, END
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDDrcVcpV-pjDUV_MO8wJMpCFVTrBA_i4A"
+os.environ["GOOGLE_API_KEY"] = "*********************************"
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 class AgentState(TypedDict):
@@ -52,4 +52,5 @@ if __name__ == "__main__":
         state["messages"].append(HumanMessage(content=user_input))
         output = app.invoke(state)
         state["messages"] = output["messages"]
+
         print(f"Agent: {output['messages'][-1].content}")
